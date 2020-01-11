@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70AC4DE623C9462C00A01FD7 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DE523C9462C00A01FD7 /* SwipingController.swift */; };
+		70AC4DEA23C951D500A01FD7 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DE923C951D500A01FD7 /* PageCell.swift */; };
+		70AC4DEC23C9528700A01FD7 /* SwipingController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DEB23C9528700A01FD7 /* SwipingController+extension.swift */; };
+		70AC4DEE23C952A700A01FD7 /* SwipingController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DED23C952A700A01FD7 /* SwipingController+UICollectionView.swift */; };
+		70AC4DF023C9534400A01FD7 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DEF23C9534400A01FD7 /* Page.swift */; };
 		70F1C91023C7ECB2005122DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F1C90F23C7ECB2005122DB /* AppDelegate.swift */; };
 		70F1C91223C7ECB2005122DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F1C91123C7ECB2005122DB /* SceneDelegate.swift */; };
 		70F1C91423C7ECB2005122DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F1C91323C7ECB2005122DB /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70AC4DE523C9462C00A01FD7 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		70AC4DE923C951D500A01FD7 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		70AC4DEB23C9528700A01FD7 /* SwipingController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+extension.swift"; sourceTree = "<group>"; };
+		70AC4DED23C952A700A01FD7 /* SwipingController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UICollectionView.swift"; sourceTree = "<group>"; };
+		70AC4DEF23C9534400A01FD7 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		70F1C90C23C7ECB2005122DB /* Test Burger View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Burger View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F1C90F23C7ECB2005122DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70F1C91123C7ECB2005122DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,9 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				70F1C90F23C7ECB2005122DB /* AppDelegate.swift */,
-				70F1C91123C7ECB2005122DB /* SceneDelegate.swift */,
 				70F1C91323C7ECB2005122DB /* ViewController.swift */,
+				70F1C91123C7ECB2005122DB /* SceneDelegate.swift */,
 				70F1C91523C7ECB2005122DB /* Main.storyboard */,
+				70AC4DE523C9462C00A01FD7 /* SwipingController.swift */,
+				70AC4DE923C951D500A01FD7 /* PageCell.swift */,
+				70AC4DEF23C9534400A01FD7 /* Page.swift */,
+				70AC4DEB23C9528700A01FD7 /* SwipingController+extension.swift */,
+				70AC4DED23C952A700A01FD7 /* SwipingController+UICollectionView.swift */,
 				70F1C91823C7ECB5005122DB /* Assets.xcassets */,
 				70F1C91A23C7ECB5005122DB /* LaunchScreen.storyboard */,
 				70F1C91D23C7ECB5005122DB /* Info.plist */,
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70AC4DEE23C952A700A01FD7 /* SwipingController+UICollectionView.swift in Sources */,
+				70AC4DEC23C9528700A01FD7 /* SwipingController+extension.swift in Sources */,
+				70AC4DF023C9534400A01FD7 /* Page.swift in Sources */,
 				70F1C91423C7ECB2005122DB /* ViewController.swift in Sources */,
 				70F1C91023C7ECB2005122DB /* AppDelegate.swift in Sources */,
+				70AC4DEA23C951D500A01FD7 /* PageCell.swift in Sources */,
 				70F1C91223C7ECB2005122DB /* SceneDelegate.swift in Sources */,
+				70AC4DE623C9462C00A01FD7 /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
