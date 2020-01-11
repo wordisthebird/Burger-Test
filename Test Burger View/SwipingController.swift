@@ -18,7 +18,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         Page(imageName: "beard", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
         Page(imageName: "burger", headerText: "VIP members special services", bodyText: "")
     ]
-
+    
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("PREV", for: .normal)
@@ -46,12 +46,17 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         return button
     }()
     
+   
+    
     @objc private func handleNext() {
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
+    
+    
+   
     
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
@@ -74,7 +79,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
             bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
-            ])
+        ])
     }
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
