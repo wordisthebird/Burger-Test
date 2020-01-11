@@ -46,6 +46,7 @@ class PageCell: UICollectionViewCell {
         textView.textAlignment = .center
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.isSelectable = false
         return textView
     }()
     
