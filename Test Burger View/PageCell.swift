@@ -12,8 +12,6 @@ class PageCell: UICollectionViewCell {
     
     var page: Page? {
         didSet {
-//            print(page?.imageName)
-            
             guard let unwrappedPage = page else { return }
             
             bearImageView.image = UIImage(named: unwrappedPage.imageName)
@@ -34,19 +32,24 @@ class PageCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let CloseBtn: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("X", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        button.setTitleColor(.red, for: .normal)
-        button.addTarget(self, action: #selector(close), for: .touchUpInside)
-        return button
-    }()
+  
+    //https://stackoverflow.com/questions/59697407/adding-a-button-to-a-closure?noredirect=1#comment105552157_59697407
+    private lazy var CloseButton: UIButton = {
+         let button = UIButton(type: .system)
+         button.setTitle("X", for: .normal)
+         button.translatesAutoresizingMaskIntoConstraints = false
+         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 34)
+         button.setTitleColor(.red, for: .normal)
+         button.addTarget(self, action: #selector(closeTest), for: .touchUpInside)
+         return button
+     }()
+     
     
-    @objc private func close() {
-           print("Boom")
-       }
+     
+     @objc private func closeTest(_ sender: UIButton) {
+         print("Test boi")
+     }
+    
     
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -85,10 +88,10 @@ class PageCell: UICollectionViewCell {
         bearImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
         bearImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
         
-        topImageContainerView.addSubview(CloseBtn)
-        CloseBtn.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
-        CloseBtn.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
-        CloseBtn.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.8).isActive = true
+        topImageContainerView.addSubview(CloseButton)
+        CloseButton.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
+        CloseButton.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
+        CloseButton.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.8).isActive = true
         
         topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
         

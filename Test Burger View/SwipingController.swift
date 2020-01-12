@@ -49,6 +49,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
    
     
     @objc private func handleNext() {
+        print("Test")
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
