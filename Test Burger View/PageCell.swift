@@ -33,7 +33,7 @@ class PageCell: UICollectionViewCell {
     }()
     
   
-    //https://stackoverflow.com/questions/59697407/adding-a-button-to-a-closure?noredirect=1#comment105552157_59697407
+    /*//https://stackoverflow.com/questions/59697407/adding-a-button-to-a-closure?noredirect=1#comment105552157_59697407
     private lazy var CloseButton: UIButton = {
          let button = UIButton(type: .system)
          button.setTitle("X", for: .normal)
@@ -48,7 +48,7 @@ class PageCell: UICollectionViewCell {
      
      @objc private func closeTest(_ sender: UIButton) {
          print("Test boi")
-     }
+     }*/
     
     
     private let descriptionTextView: UITextView = {
@@ -72,6 +72,7 @@ class PageCell: UICollectionViewCell {
         setupLayout()
     }
     
+    
     private func setupLayout() {
         let topImageContainerView = UIView()
         addSubview(topImageContainerView)
@@ -88,11 +89,11 @@ class PageCell: UICollectionViewCell {
         bearImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
         bearImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
         
-        topImageContainerView.addSubview(CloseButton)
+        /*topImageContainerView.addSubview(CloseButton)
         CloseButton.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
         CloseButton.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
         CloseButton.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.8).isActive = true
-        
+        */
         topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
         
         addSubview(descriptionTextView)

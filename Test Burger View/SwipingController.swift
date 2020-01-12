@@ -46,8 +46,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         return button
     }()
     
-   
-    
     @objc private func handleNext() {
         print("Test")
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
@@ -56,8 +54,24 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
+    //https://stackoverflow.com/questions/59697407/adding-a-button-to-a-closure?noredirect=1#comment105552157_59697407
+    private lazy var CloseButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("X", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 34)
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(closeTest), for: .touchUpInside)
+        return button
+    }()
     
-   
+    
+    
+    @objc private func closeTest(_ sender: UIButton) {
+        print("Test boi")
+    }
+    
+    
     
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
@@ -68,18 +82,31 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         return pc
     }()
     
-    fileprivate func setupBottomControls() {
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
-        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
-        bottomControlsStackView.distribution = .fillEqually
-        
-        view.addSubview(bottomControlsStackView)
-        
+     fileprivate func setupBottomControls() {
+     let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
+     bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+     bottomControlsStackView.distribution = .fillEqually
+     
+     view.addSubview(bottomControlsStackView)
+     
+     NSLayoutConstraint.activate([
+     bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+     bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+     bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+     bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+     ])
+     }
+    
+    fileprivate func setupTopControls() {
+        let TopControlsStackView = UIStackView(arrangedSubviews: [CloseButton])
+        TopControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        //TopControlsStackView.alignment =
+        view.addSubview(TopControlsStackView)
+
         NSLayoutConstraint.activate([
-            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+            TopControlsStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            TopControlsStackView.heightAnchor.constraint(equalToConstant: 30),
+            TopControlsStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60)
         ])
     }
     
@@ -94,7 +121,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         super.viewDidLoad()
         
         setupBottomControls()
-        
+        setupTopControls()
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
