@@ -65,10 +65,22 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         return button
     }()
     
-    
-    
     @objc private func closeTest(_ sender: UIButton) {
         print("Test boi")
+    }
+    
+    private let ViewARBtn: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("View AR", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(ViewAR), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func ViewAR(_ sender: UIButton) {
+        print("AR")
     }
     
     lazy var pageControl: UIPageControl = {
@@ -107,6 +119,21 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         ])
     }
     
+    fileprivate func setupButton() {
+        let ButtonStackView = UIStackView(arrangedSubviews: [ViewARBtn])
+        ButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ButtonStackView)
+        
+       NSLayoutConstraint.activate([
+
+        ButtonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+          // ButtonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+           ButtonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+           ButtonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+           ButtonStackView.heightAnchor.constraint(equalToConstant: 50)
+       ])
+    }
+    
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let x = targetContentOffset.pointee.x
@@ -119,6 +146,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         
         setupBottomControls()
         setupTopControls()
+        setupButton()
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
