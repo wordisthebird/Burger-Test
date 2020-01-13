@@ -6,10 +6,10 @@
 //  Copyright © 2020 Michael Christie. All rights reserved.
 //
 import Foundation
-
+import UIKit
 struct Page {
     
-    let imageName: String
+    let imageName: UIImage?
     let headerText: String
     let bodyText: String
     

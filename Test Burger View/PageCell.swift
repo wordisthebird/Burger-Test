@@ -10,11 +10,17 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
+    
     var page: Page? {
         didSet {
             guard let unwrappedPage = page else { return }
             
-            bearImageView.image = UIImage(named: unwrappedPage.imageName)
+            /*let url1 = URL(string: "https://flipside-space.s3-eu-west-1.amazonaws.com/one.png")
+            let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+            self.bearImageView = UIImage(data: data1!)
+            */
+            //bearImageView.image = images
+            
             
             let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
             
@@ -26,7 +32,7 @@ class PageCell: UICollectionViewCell {
     }
     
     private let bearImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "burger"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "beard"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     // let's avoid polluting viewDidLoad
     // {} is referred to as closure, or anon. functions
     let bearImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "burger"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "beard"))
         // this enables autolayout for our imageView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit

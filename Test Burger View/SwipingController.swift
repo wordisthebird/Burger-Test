@@ -7,16 +7,38 @@
 //
 
 import UIKit
+import Foundation
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let pages = [
-        Page(imageName: "beard", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
-        Page(imageName: "burger", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
-        Page(imageName: "beard", headerText: "VIP members special services", bodyText: ""),
-        Page(imageName: "burger", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
-        Page(imageName: "beard", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
-        Page(imageName: "burger", headerText: "VIP members special services", bodyText: "")
+    var restaurauntName = "flipside"
+    var imagesOne : UIImage!
+    var imagez = UIImage(named:"beard")
+    
+    func one(){
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/one.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        
+        self.imagez = UIImage(data: data1!)
+        
+        print("URL: ",url1!)
+        
+        setupBottomControls()
+        setupTopControls()
+        setupButton()
+    }
+    
+    lazy var pages = [
+        Page(imageName : imagez, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+        
+        Page(imageName: imagez, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+        
+        Page(imageName: imagez, headerText: "VIP members special services", bodyText: "jhgfdjhdjhd"),
+        
+        Page(imageName: imagez, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+        
+        Page(imageName: imagez, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+        
     ]
     
     private let previousButton: UIButton = {
@@ -124,14 +146,14 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         ButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(ButtonStackView)
         
-       NSLayoutConstraint.activate([
-
-        ButtonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-          // ButtonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-           ButtonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-           ButtonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-           ButtonStackView.heightAnchor.constraint(equalToConstant: 50)
-       ])
+        NSLayoutConstraint.activate([
+            
+            ButtonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            // ButtonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            ButtonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            ButtonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            ButtonStackView.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -143,10 +165,10 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        one()
         
-        setupBottomControls()
-        setupTopControls()
-        setupButton()
+        
+        
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
