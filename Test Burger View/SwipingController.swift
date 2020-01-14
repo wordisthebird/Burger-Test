@@ -8,11 +8,13 @@
 
 import UIKit
 import Foundation
+import Firebase
+
 
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var restaurauntName = "flipside"
+    var restaurauntName = "Flipside"
     var pages: [Page] = []
     
     var imagesOne : UIImage!
@@ -20,38 +22,40 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     var imagesThree : UIImage!
     var imagesFour : UIImage!
     var imagesFive : UIImage!
-   
+    
+    //arrays of names and descriptions
+    var names:[String] = []
+    var desctiptions: [String] = []
     
     
     func one(){
-           
-           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/one.png")
-           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-           self.imagesOne = UIImage(data: data1!)
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/one.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        self.imagesOne = UIImage(data: data1!)
     }
     func two(){
-           
-           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/two.png")
-           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-           self.imagesTwo = UIImage(data: data1!)
+        
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/two.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        self.imagesTwo = UIImage(data: data1!)
     }
     func three(){
-           
-           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/three.png")
-           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-           self.imagesThree = UIImage(data: data1!)
+        
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/three.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        self.imagesThree = UIImage(data: data1!)
     }
     func four(){
-           
-           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/four.png")
-           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-           self.imagesFour = UIImage(data: data1!)
+        
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/four.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        self.imagesFour = UIImage(data: data1!)
     }
     func five(){
-           
-           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/five.png")
-           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-           self.imagesFive = UIImage(data: data1!)
+        
+        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/five.png")
+        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+        self.imagesFive = UIImage(data: data1!)
     }
     
     func setupImages(){
@@ -61,22 +65,21 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         three()
         four()
         five()
-       
         
- 
         pages = [
             
-            Page(imageName2: imagesOne, headerText: "This is a testzzz!", bodyText: "arent you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+            Page(imageName: imagesOne, headerText: "", bodyText: "    "),
             
-            Page(imageName2: imagesTwo, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+            Page(imageName: imagesTwo, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
             
-            Page(imageName2: imagesThree, headerText: "VIP members special services", bodyText: ""),
+            Page(imageName: imagesThree, headerText: "VIP members special services", bodyText: ""),
             
-            Page(imageName2: imagesFour, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+            Page(imageName: imagesFour, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
             
-            Page(imageName2: imagesFive, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+            Page(imageName: imagesFive, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
             
         ]
+        
     }
     
     private let previousButton: UIButton = {
@@ -203,18 +206,58 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         pageControl.currentPage = Int(x / view.frame.width)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupImages()
+    func firebase()
+    {
+        //connection to firebase for the names and descriptions
+        let db = Firestore.firestore()
         
-        setupBottomControls()
-        setupTopControls()
-        setupButton()
-        
+        db.collection(restaurauntName).getDocuments { (snapshot, err) in
+            
+            if let err = err {
+                
+                print("Error getting documents: \(err)")
+            } else {
+                print("hehe")
+                for document in snapshot!.documents {
+                    //let docId = document.documentID
+                    let name = document.get("Name") as! String
+                    let description = document.get("Description") as! String
+                    //Add names and descriptions to the arrays
+                    //print(name)
+                    //print(description)
+                    self.names.append(name)
+                    self.desctiptions.append(description)
+                    
+                    
+                }
+                for x in self.names{
+                    print(x)
+                }
+                for y in self.desctiptions{
+                    print(y)
+                }
+            }
+        }
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")
         
         collectionView?.isPagingEnabled = true
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        firebase()
+        setupBottomControls()
+        setupTopControls()
+        setupButton()
+        setupImages()
+        
+        
+        
+        
     }
     
 }
+

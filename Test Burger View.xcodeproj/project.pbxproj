@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6888D6B7028EA0DA5E0D6E86 /* Pods_Test_Burger_View.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19598A06FA6EB3A0CF2782C3 /* Pods_Test_Burger_View.framework */; };
+		70AB4A2523CE37F8002D2ED9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70AB4A2423CE37F8002D2ED9 /* GoogleService-Info.plist */; };
 		70AC4DE623C9462C00A01FD7 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DE523C9462C00A01FD7 /* SwipingController.swift */; };
 		70AC4DEA23C951D500A01FD7 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DE923C951D500A01FD7 /* PageCell.swift */; };
 		70AC4DEC23C9528700A01FD7 /* SwipingController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC4DEB23C9528700A01FD7 /* SwipingController+extension.swift */; };
@@ -20,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19598A06FA6EB3A0CF2782C3 /* Pods_Test_Burger_View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_Burger_View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FF55337DC1CC7C9B5E81121 /* Pods-Test Burger View.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test Burger View.release.xcconfig"; path = "Target Support Files/Pods-Test Burger View/Pods-Test Burger View.release.xcconfig"; sourceTree = "<group>"; };
+		70AB4A2423CE37F8002D2ED9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70AC4DE523C9462C00A01FD7 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		70AC4DE923C951D500A01FD7 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		70AC4DEB23C9528700A01FD7 /* SwipingController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+extension.swift"; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		70F1C91823C7ECB5005122DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70F1C91B23C7ECB5005122DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70F1C91D23C7ECB5005122DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C0049915386DFAB46B9A3E /* Pods-Test Burger View.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test Burger View.debug.xcconfig"; path = "Target Support Files/Pods-Test Burger View/Pods-Test Burger View.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6888D6B7028EA0DA5E0D6E86 /* Pods_Test_Burger_View.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A88F16EA082C958181726A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19598A06FA6EB3A0CF2782C3 /* Pods_Test_Burger_View.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		479C8C1744920B02454FC252 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89C0049915386DFAB46B9A3E /* Pods-Test Burger View.debug.xcconfig */,
+				3FF55337DC1CC7C9B5E81121 /* Pods-Test Burger View.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		70F1C90323C7ECB2005122DB = {
 			isa = PBXGroup;
 			children = (
 				70F1C90E23C7ECB2005122DB /* Test Burger View */,
 				70F1C90D23C7ECB2005122DB /* Products */,
+				479C8C1744920B02454FC252 /* Pods */,
+				1A88F16EA082C958181726A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +101,7 @@
 				70F1C91823C7ECB5005122DB /* Assets.xcassets */,
 				70F1C91A23C7ECB5005122DB /* LaunchScreen.storyboard */,
 				70F1C91D23C7ECB5005122DB /* Info.plist */,
+				70AB4A2423CE37F8002D2ED9 /* GoogleService-Info.plist */,
 			);
 			path = "Test Burger View";
 			sourceTree = "<group>";
@@ -86,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70F1C92023C7ECB5005122DB /* Build configuration list for PBXNativeTarget "Test Burger View" */;
 			buildPhases = (
+				941CE8EBA2DA8D3C45FBCD3C /* [CP] Check Pods Manifest.lock */,
 				70F1C90823C7ECB2005122DB /* Sources */,
 				70F1C90923C7ECB2005122DB /* Frameworks */,
 				70F1C90A23C7ECB2005122DB /* Resources */,
+				E0BF6B1ABF0CC506661B781A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,12 +167,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				70F1C91C23C7ECB5005122DB /* LaunchScreen.storyboard in Resources */,
+				70AB4A2523CE37F8002D2ED9 /* GoogleService-Info.plist in Resources */,
 				70F1C91923C7ECB5005122DB /* Assets.xcassets in Resources */,
 				70F1C91723C7ECB2005122DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		941CE8EBA2DA8D3C45FBCD3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Test Burger View-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0BF6B1ABF0CC506661B781A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Test Burger View/Pods-Test Burger View-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Test Burger View/Pods-Test Burger View-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Test Burger View/Pods-Test Burger View-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		70F1C90823C7ECB2005122DB /* Sources */ = {
@@ -298,6 +370,7 @@
 		};
 		70F1C92123C7ECB5005122DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C0049915386DFAB46B9A3E /* Pods-Test Burger View.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -316,6 +389,7 @@
 		};
 		70F1C92223C7ECB5005122DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FF55337DC1CC7C9B5E81121 /* Pods-Test Burger View.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

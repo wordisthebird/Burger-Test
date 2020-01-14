@@ -14,7 +14,7 @@ class PageCell: UICollectionViewCell {
         didSet {
             guard let unwrappedPage = page else { return }
             
-            bearImageView.image = unwrappedPage.imageName2
+            bearImageView.image = unwrappedPage.imageName
             
             let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
             
@@ -27,9 +27,6 @@ class PageCell: UICollectionViewCell {
     var imagesOne : UIImage!
     
     private let bearImageView: UIImageView = {
-        
-       
-        
         let imageView = UIImageView(image: #imageLiteral(resourceName: "beard"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
