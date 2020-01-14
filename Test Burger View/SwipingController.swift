@@ -9,37 +9,75 @@
 import UIKit
 import Foundation
 
+
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var restaurauntName = "flipside"
+    var pages: [Page] = []
+    
     var imagesOne : UIImage!
-    var imagez = UIImage(named:"beard")
+    var imagesTwo : UIImage!
+    var imagesThree : UIImage!
+    var imagesFour : UIImage!
+    var imagesFive : UIImage!
+   
+    
     
     func one(){
-        let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/one.png")
-        let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-        
-        self.imagez = UIImage(data: data1!)
-        
-        print("URL: ",url1!)
-        
-        setupBottomControls()
-        setupTopControls()
-        setupButton()
+           
+           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/one.png")
+           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+           self.imagesOne = UIImage(data: data1!)
+    }
+    func two(){
+           
+           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/two.png")
+           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+           self.imagesTwo = UIImage(data: data1!)
+    }
+    func three(){
+           
+           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/three.png")
+           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+           self.imagesThree = UIImage(data: data1!)
+    }
+    func four(){
+           
+           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/four.png")
+           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+           self.imagesFour = UIImage(data: data1!)
+    }
+    func five(){
+           
+           let url1 = URL(string: "https://\(restaurauntName)-space.s3-eu-west-1.amazonaws.com/five.png")
+           let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
+           self.imagesFive = UIImage(data: data1!)
     }
     
-    lazy var pages = [
-        Page(imageName : imagez, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+    func setupImages(){
         
-        Page(imageName: imagez, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+        one()
+        two()
+        three()
+        four()
+        five()
+       
         
-        Page(imageName: imagez, headerText: "VIP members special services", bodyText: "jhgfdjhdjhd"),
-        
-        Page(imageName: imagez, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
-        
-        Page(imageName: imagez, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
-        
-    ]
+ 
+        pages = [
+            
+            Page(imageName2: imagesOne, headerText: "This is a testzzz!", bodyText: "arent you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+            
+            Page(imageName2: imagesTwo, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+            
+            Page(imageName2: imagesThree, headerText: "VIP members special services", bodyText: ""),
+            
+            Page(imageName2: imagesFour, headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+            
+            Page(imageName2: imagesFive, headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+            
+        ]
+    }
     
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
@@ -141,6 +179,8 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         ])
     }
     
+    
+    
     fileprivate func setupButton() {
         let ButtonStackView = UIStackView(arrangedSubviews: [ViewARBtn])
         ButtonStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -165,9 +205,11 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        one()
+        setupImages()
         
-        
+        setupBottomControls()
+        setupTopControls()
+        setupButton()
         
         collectionView?.backgroundColor = .white
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: "cellId")

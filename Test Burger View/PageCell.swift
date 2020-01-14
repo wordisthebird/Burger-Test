@@ -10,17 +10,11 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
-    
     var page: Page? {
         didSet {
             guard let unwrappedPage = page else { return }
             
-            /*let url1 = URL(string: "https://flipside-space.s3-eu-west-1.amazonaws.com/one.png")
-            let data1 = try? Data(contentsOf: url1!) //make sure your image in this url does exist
-            self.bearImageView = UIImage(data: data1!)
-            */
-            //bearImageView.image = images
-            
+            bearImageView.image = unwrappedPage.imageName2
             
             let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
             
@@ -30,8 +24,12 @@ class PageCell: UICollectionViewCell {
             descriptionTextView.textAlignment = .center
         }
     }
+    var imagesOne : UIImage!
     
     private let bearImageView: UIImageView = {
+        
+       
+        
         let imageView = UIImageView(image: #imageLiteral(resourceName: "beard"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -41,9 +39,9 @@ class PageCell: UICollectionViewCell {
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
+        let attributedText = NSMutableAttributedString(string: "Boom!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
         
-        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: "\n\n\nArent you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false

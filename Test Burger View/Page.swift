@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 struct Page {
     
-    let imageName: UIImage?
+    //let imageName: UIImage?
+    //let imageName: String
+    let imageName2: UIImage
+    //let imageName2: [UIImage] = []
     let headerText: String
     let bodyText: String
     
