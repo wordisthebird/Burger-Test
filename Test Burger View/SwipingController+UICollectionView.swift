@@ -22,6 +22,7 @@ extension SwipingController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
         
         let page = pages[indexPath.item]
+        //let page = pages[indexPath.row]
         cell.page = page
         return cell
     }
